@@ -2,6 +2,6 @@
   "name": "gambleton-websocketserver",
   "version": "1.0.0",
   "dependencies": {
-    "ws": "latest"
+    "socket.io": "^2.2.0"
   }
 }
