@@ -1,0 +1,7 @@
+{
+  "name": "gambleton-websocketserver",
+  "version": "1.0.0",
+  "dependencies": {
+    "ws": "latest"
+  }
+}
