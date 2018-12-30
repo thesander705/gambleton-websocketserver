@@ -24,6 +24,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('post-userByAuthToken', function (m) {
         postRequest("/userByAuthToken", m, socket, 'post-userByAuthToken');
     });
+
+    socket.on('post-bets', function (m) {
+        postRequestMessageAllSocketClients("/bets", m, 'post-bets');
+    });
 });
 
 function postRequest(path, body, socket, event) {
@@ -46,9 +50,9 @@ postRequestMessageAllSocketClients(path, body, event) {
         { json: body },
         function (error, response, body) {
             if (!error) {
-                this.sockets.emit(event, body);
+                io.sockets.emit(event, body);
             }else{
-                this.sockets.emit(event, error);
+                io.sockets.emit(event, error);
             }
         }
     );
