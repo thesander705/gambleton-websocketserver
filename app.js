@@ -28,6 +28,14 @@ io.sockets.on('connection', function (socket) {
     socket.on('post-bets', function (m) {
         postRequestMessageAllSocketClients("/bets", m, 'post-bets');
     });
+
+    socket.on('post-match', function (m) {
+        postRequestMessageAllSocketClients("/match", m, 'post-match');
+    });
+
+    socket.on('post-game', function (m) {
+        postRequestMessageAllSocketClients("/game", m, 'post-game');
+    });
 });
 
 function postRequest(path, body, socket, event) {
